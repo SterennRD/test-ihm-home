@@ -1,3 +1,4 @@
+/* STYLES GENERAUX  */
 * {
     box-sizing: border-box;
 }
@@ -6,6 +7,7 @@ body {
     margin: 0;
 }
 
+/* NAVIGATION */
 .navigation {
     background-color: #eaeaea;
     border-bottom: 1px solid #bebebe;
@@ -13,8 +15,8 @@ body {
 }
 .navigation__list,
 .navigation__sublist {
-    align-items: center;
     display: flex;
+    flex-direction: column;
     height: 100%;
     justify-content: center;
     list-style: none;
@@ -22,19 +24,14 @@ body {
     padding: 0;
 }
 .navigation__list {
-    flex-direction: column;
     margin: auto;
     position: relative;
     width: 100%;
 }
 .navigation__sublist {
     background-color: #8e8e8e;
-    display: none;
     font-size: 12px;
     height: auto;
-    left: 0;
-    position: absolute;
-    top: 100%;
 }
 .navigation__list_item:hover > .navigation__sublist {
     display: block;
@@ -44,7 +41,7 @@ body {
     background-color: transparent;
     display: flex;
     flex: 1;
-    font-weight: bold;
+    flex-direction: column;
     height: 100%;
     transition: 0.3s;
 }
@@ -59,6 +56,7 @@ body {
     color: #000;
     cursor: pointer;
     display: flex;
+    font-weight: bold;
     height: 100%;
     justify-content: center;
     text-decoration: none;
@@ -66,13 +64,19 @@ body {
     width: 100%;
 }
 .navigation__sublist_link {
-    padding: 10px 56px;
-}
-.navigation__list_link:hover,
-.navigation__sublist_link:hover {
     color: #fff;
 }
+.navigation__sublist_link {
+    padding: 10px 56px;
+}
+.navigation__list_link:hover {
+    color: #fff;
+}
+.navigation__sublist_link:hover {
+    color: #000;
+}
 
+/* SECTION AVEC ARTICLES  */
 .section {
     background-color: #fbfbfb;
 }
@@ -107,13 +111,24 @@ body {
     font-size: 12px;
 }
 
+/* RESPONSIVE  */
 @media (min-width: 720px) {
     .navigation {
         height: 60px;
         margin-bottom: 200px;
     }
     .navigation__list {
+        align-items: center;
         display: flex;
+    }
+    .navigation__sublist {
+        display: none;
+        left: 0;
+        position: absolute;
+        top: 100%;
+    }
+    .navigation__list,
+    .navigation__sublist {
         flex-direction: row;
     }
     .section__article {
